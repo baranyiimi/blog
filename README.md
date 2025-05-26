@@ -50,6 +50,12 @@ Ez a projekt egy teljes stack blogalkalmazás, amely Laravel backendből és Rea
    docker-compose exec app php artisan migrate
    ```
 
+   Teszt adatok generálása adatbázisba:
+
+   ```bash
+   docker-compose exec app php artisan migrate:fresh --seed
+   ```
+
 ## Elérhetőségek
 
 - **Laravel Backend:** [http://localhost:8000](http://localhost:8000)
