@@ -17,17 +17,7 @@ Ez a projekt egy teljes stack blogalkalmazás, amely Laravel backendből és Rea
    cd blog
    ```
 
-2. **.env fájl beállítása:**
-
-   Másold az `.env.example` fájlt `.env` néven:
-
-   ```bash
-   cp .env.example .env
-   ```
-
-   Szükség esetén módosítsd a környezeti változókat.
-
-3. **Docker konténerek indítása:**
+2. **Docker konténerek indítása:**
 
    ```bash
    docker-compose up --build
@@ -35,7 +25,7 @@ Ez a projekt egy teljes stack blogalkalmazás, amely Laravel backendből és Rea
 
    Ez a parancs elindítja az összes szükséges szolgáltatást (Laravel backend, React frontend, adatbázis stb.).
 
-4. **Composer függőségek telepítése:**
+3. **Composer függőségek telepítése:**
 
    A Laravel konténerben telepítsd a PHP csomagokat:
 
@@ -43,7 +33,7 @@ Ez a projekt egy teljes stack blogalkalmazás, amely Laravel backendből és Rea
    docker-compose exec app composer install
    ```
 
-5. **NPM függőségek telepítése és frontend build:**
+4. **NPM függőségek telepítése és frontend build:**
 
    A frontend konténerben telepítsd a JavaScript csomagokat és buildeld a React alkalmazást:
 
@@ -52,7 +42,7 @@ Ez a projekt egy teljes stack blogalkalmazás, amely Laravel backendből és Rea
    docker-compose exec frontend npm run dev -- --host
    ```
 
-6. **Adatbázis migrációk futtatása:**
+5. **Adatbázis migrációk futtatása:**
 
    Futtasd a Laravel migrációkat az adatbázis inicializálásához:
 
