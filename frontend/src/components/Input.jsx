@@ -1,16 +1,18 @@
-export default function Input({ label, type, name, value, onChange }) {
+export default function Input({ label, type = 'text', name, value, onChange }) {
   return (
-    <div style={{ marginBottom: '1rem' }}>
-      <label>
+    <div className="mb-4">
+      <label htmlFor={name} className="block text-sm font-medium mb-1">
         {label}
-        <input
-          style={{ display: 'block', padding: '0.5rem', marginTop: '0.25rem', width: '100%' }}
-          type={type}
-          name={name}
-          value={value}
-          onChange={onChange}
-        />
       </label>
+      <input
+        id={name}
+        name={name}
+        type={type}
+        value={value}
+        onChange={onChange}
+        required
+        className="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+      />
     </div>
   );
 }

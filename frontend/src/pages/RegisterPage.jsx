@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 import { AuthContext } from '../auth/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import Input from '../components/Input';
 
 export default function RegisterPage() {
   const { register } = useContext(AuthContext);
@@ -21,36 +22,26 @@ export default function RegisterPage() {
     <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
       <h2 className="text-2xl font-bold mb-6 text-center">Regisztráció</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label className="block text-sm font-medium mb-1">Név</label>
-          <input
-            type="text"
-            className="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-            value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
-            required
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium mb-1">Email</label>
-          <input
-            type="email"
-            className="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-            value={form.email}
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
-            required
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium mb-1">Jelszó</label>
-          <input
-            type="password"
-            className="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
-            value={form.password}
-            onChange={(e) => setForm({ ...form, password: e.target.value })}
-            required
-          />
-        </div>
+        <Input
+          label="Név"
+          name="name"
+          value={form.name}
+          onChange={(e) => setForm({ ...form, name: e.target.value })}
+        />
+        <Input
+          label="Email"
+          type="email"
+          name="email"
+          value={form.email}
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
+        />
+        <Input
+          label="Jelszó"
+          type="password"
+          name="password"
+          value={form.password}
+          onChange={(e) => setForm({ ...form, password: e.target.value })}
+        />
         <button
           type="submit"
           className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700"
@@ -58,6 +49,13 @@ export default function RegisterPage() {
           Regisztráció
         </button>
       </form>
+
+      <p className="mt-4 text-center text-sm text-gray-600">
+        Már van fiókod?{' '}
+        <Link to="/login" className="text-blue-600 hover:underline">
+          Jelentkezz be
+        </Link>
+      </p>
     </div>
   );
 }
