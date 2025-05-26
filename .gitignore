@@ -1,0 +1,5 @@
+app/.editorconfig
+app/composer.lock
+app/README.md
+frontend/package-lock.json
+mysql
